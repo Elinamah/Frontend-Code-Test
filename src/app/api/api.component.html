@@ -1,2 +1,8 @@
 <h1>Get Method</h1>
-<p>{{getJsonValue | json}}</p>
+<div *ngFor="let fund of funds">
+    <p>Fund Name: {{fund.fundName}}</p>
+    <p>Change 1 Month: {{fund.change1m}}</p>
+    <p>Change 3 Months: {{fund.change3m}}</p>
+    <p>Change 3 Years: {{fund.change3y}}</p>
+</div>
+        

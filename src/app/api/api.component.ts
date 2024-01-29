@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiComponent implements OnInit{
 
-  public getJsonValue: any;
-  public postJsonValue: any;
+  public funds: any[] = [];
 
   constructor(private http: HttpClient) {
 
@@ -21,8 +20,19 @@ export class ApiComponent implements OnInit{
 
   public getMethod() {
     this.http.get('https://ivarpivar.netlify.app/api').subscribe((data) => {
-      console.log(data.toString());
-      this.getJsonValue = data;
+      this.funds = this.cleanApiData(data);
+    });
+  }
+
+  private cleanApiData(apiData: any): any[] {
+    //Perform data cleaning and cleaning here
+    return apiData.flatMap((item: any) => {
+        return item.data.map((fund:any) => ({
+          fundName: fund.fundName,
+          change1m: fund.change1m,
+          change3m: fund.change3m,
+          change3y: fund.change3y
+        }));
     });
   }
 
