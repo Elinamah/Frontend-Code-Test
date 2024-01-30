@@ -24,9 +24,9 @@ export class ApiComponent implements OnInit{
     });
   }
 
-  private cleanApiData(apiData: any): any[] {
-    //Perform data cleaning and cleaning here
-    return apiData.flatMap((item: any) => {
+  private cleanApiData(data: any): any[] {
+    //Perform data cleaning here
+    return data.flatMap((item: any) => {
         return item.data.map((fund:any) => ({
           fundName: fund.fundName,
           change1m: fund.change1m,

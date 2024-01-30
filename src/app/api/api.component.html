@@ -1,8 +1,22 @@
-<h1>Get Method</h1>
-<div *ngFor="let fund of funds">
-    <p>Fund Name: {{fund.fundName}}</p>
-    <p>Change 1 Month: {{fund.change1m}}</p>
-    <p>Change 3 Months: {{fund.change3m}}</p>
-    <p>Change 3 Years: {{fund.change3y}}</p>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fund Name:</th>
+                <th>Change 1 Month:</th>
+                <th>Change 3 Months:</th>
+                <th>Change 3 Years:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fund of funds">
+                <td><span>{{fund.fundName}}</span></td>
+                <td><span>{{fund.change1m}}</span></td>
+                <td><span>{{fund.change3m}}</span></td>
+                <td><span>{{fund.change3y}}</span></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
         
