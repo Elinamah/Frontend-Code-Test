@@ -2,7 +2,7 @@ table {
     width: 99%;
     border-collapse: collapse;
     margin: .5em;
-    border-radius: 10px;
+    border-radius: 10px;    
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
@@ -20,5 +20,11 @@ thead {
 
 tbody tr:nth-child(even) {
     background-color: rgb(173, 221, 230);
+}
+
+.errorMessage {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
 }
 

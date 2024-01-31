@@ -10,13 +10,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let fund of funds">
-                <td><span>{{fund.fundName}}</span></td>
-                <td><span>{{fund.change1m}}</span></td>
-                <td><span>{{fund.change3m}}</span></td>
-                <td><span>{{fund.change3y}}</span></td>
+                <td>{{fund.fundName}}</td>
+                <td>{{fund.change1m}}</td>
+                <td>{{fund.change3m}}</td>
+                <td>{{fund.change3y}}</td>
             </tr>
         </tbody>
     </table>
 </div>
+<div class="errorMessage" *ngIf="errorMessage">{{ errorMessage }}</div>
 
         

@@ -1,27 +1,14 @@
-# FrontendCodeTest
+# Frontend Code Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+This project fetches fund data from an API and displays it in a table format. It's presenting information such as the name of funds and their performance over 1 month, 3 months and 3 years. 
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run this project locally, follow these steps:
 
-## Code scaffolding
+1. Clone the repository: ´git clone https://github.com/Elinamah/Frontend-Code-Test.git´
+2. Navigate to the project directory: ´cd Frontend-Code-Test´
+3. Install dependencies: ´npm install´
+4. Run the development server: ´ng serve´
+5. Open a browser and go to ´http://localhost:4200/´ to view the application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

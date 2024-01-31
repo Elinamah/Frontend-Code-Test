@@ -1,6 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
+interface FundDataResponse {
+  data: FundData[];
+}
+
+interface FundData {
+  fundName: string;
+  change1m: number;
+  change3m: number;
+  change3y: number;
+}
+
 @Component({
   selector: 'app-api',
   templateUrl: './api.component.html',
@@ -8,32 +19,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApiComponent implements OnInit{
 
-  public funds: any[] = [];
+  public funds: FundData[] = [];
+  private apiUrl = 'https://ivarpivar.netlify.app/api';
+  public errorMessage: string | null = null;
 
   constructor(private http: HttpClient) {
-
   }
 
   ngOnInit(): void {
-    this.getMethod();
-  }
-
-  public getMethod() {
-    this.http.get('https://ivarpivar.netlify.app/api').subscribe((data) => {
-      this.funds = this.cleanApiData(data);
+    //Fetch data from API
+    this.http.get<FundDataResponse[]>(this.apiUrl).subscribe({
+      next: (data) => {
+        this.funds = this.extractData(data);
+      },
+      error: (error) => {
+        console.error('Error fetching data:', error);
+        this.errorMessage = 'An error occured while fetching data. Please try again later';
+      }
     });
   }
 
-  private cleanApiData(data: any): any[] {
-    //Perform data cleaning here
-    return data.flatMap((item: any) => {
-        return item.data.map((fund:any) => ({
-          fundName: fund.fundName,
-          change1m: fund.change1m,
-          change3m: fund.change3m,
-          change3y: fund.change3y
-        }));
-    });
+  // Extract the data array from the object 
+  private extractData(data: FundDataResponse[] ): FundData[] {
+    return data.flatMap(item => item.data);
   }
 
 }
